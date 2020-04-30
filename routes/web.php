@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// 3/4 Done
+// 3/6 Done
 
 Route::get('/', function () {
     return view('welcome');
