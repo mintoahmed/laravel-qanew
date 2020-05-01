@@ -27,11 +27,13 @@ class AnswersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\View\View
      */
-    public function edit(Answer $answer)
+    public function edit(Question $question, Answer $answer)
     {
-        //
+        $this->authorize('update', $answer);
+
+        return view('answers.edit', compact('question', 'answer'));
     }
 
     /**
@@ -39,11 +41,17 @@ class AnswersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Answer $answer)
+    public function update(Request $request, Question $question, Answer $answer)
     {
-        //
+        $this->authorize('update', $answer);
+
+        $answer->update($request->validate([
+            'body' => 'required',
+        ]));
+
+        return redirect()->route('questions.show', $question->slug)->with('success', 'Your answer has been updated');
     }
 
     /**
