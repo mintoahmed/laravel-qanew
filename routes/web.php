@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// 4/6 Done
+// 4/11 Done
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +28,5 @@ Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers
 
 Route::post('/questions/{question}/favorites', 'FavoritesController@store')->name('questions.favorite');
 Route::delete('/questions/{question}/favorites', 'FavoritesController@destroy')->name('questions.unfavorite');
+
+Route::post('/questions/{question}/vote', 'VoteQuestionController');
