@@ -10,11 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// 5/5 Done
+// 5/6 Done
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'QuestionsController@index');
 
 Auth::routes();
 
