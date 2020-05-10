@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
@@ -10,6 +9,8 @@ class Question extends Model
     use VotableTrait;
 
     protected $fillable = ['title', 'body'];
+
+    protected $appends = ['created_date'];
 
     public function user(){
         return $this->belongsTo(User::class);
