@@ -21,10 +21,7 @@
                     @endcan
                 </div>
             </div>
-            <div class="col-md-4">
-
-            </div>
-
+            <div class="col-md-4"> </div>
             <div class="col-4">
                 <user-info :model="{{ $answer }}" label="Answered"></user-info>
             </div>

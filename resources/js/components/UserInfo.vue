@@ -13,22 +13,17 @@
 </template>
 
 <script>
-    export default {
-        props: ['model', 'label'],
-
-        computed: {
-            postDate(){
-                return this.label + " " + this.model.created_date;
-            }
-        },
-        data(){
-            return{
-                user: this.model.user
-            }
+export default {
+    props: ['model', 'label'],
+    computed: {
+        postDate(){
+            return this.label + " " + this.model.created_date;
+        }
+    },
+    data(){
+        return{
+            user: this.model.user
         }
     }
+}
 </script>
-
-<style scoped>
-
-</style>
